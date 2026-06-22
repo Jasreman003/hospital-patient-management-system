@@ -1,0 +1,18 @@
+# MySQL Workbench files
+*.mwb
+
+# Database credentials
+config.ini
+
+# VS Code settings
+.vscode/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
