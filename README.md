@@ -19,6 +19,8 @@ This project helps answer business questions such as:
 - What is the current bed occupancy rate?
 - Which patients have outstanding payments?
 - Who is currently admitted to the hospital?
+- Which department receives the highest number of appointments?
+- How much revenue has the hospital generated and collected?
 
 ---
 
@@ -65,15 +67,25 @@ hospital_pms/
 ├── images/
 │   ├── bed_occupancy_analysis.png
 │   ├── billing_summary_analysis.png
+│   ├── busiest_department_analysis.png
 │   ├── doctor_workload_analysis.png
 │   ├── ERD.png
-│   └── patient_history_query_result.png
+│   ├── long_stay_patients_analysis.png
+│   ├── monthly_revenue_analysis.png
+│   ├── patient_history_query_result.png
+│   ├── top_doctors_analysis.png
+│   └── unpaid_patients_analysis.png
 │
 ├── queries/
 │   ├── bed_occupancy.sql
 │   ├── billing_summary.sql
+│   ├── busiest_department.sql
 │   ├── doctor_workload.sql
-│   └── patient_history.sql
+│   ├── long_stay_patients.sql
+│   ├── monthly_revenue.sql
+│   ├── patient_history.sql
+│   ├── top_doctors.sql
+│   └── unpaid_patients.sql
 │
 ├── views/
 │   └── active_admissions.sql
@@ -82,7 +94,7 @@ hospital_pms/
 └── README.md
 ```
 
----
+--- 
 
 ## 📊 SQL Analysis Queries
 
@@ -138,6 +150,76 @@ Identifies pending payments, balances, and patient stay duration.
 
 ---
 
+### 5. Top Doctors Analysis
+
+Identifies doctors handling the highest number of appointments.
+
+**Concepts Used:**
+- JOIN
+- COUNT()
+- GROUP BY
+- ORDER BY
+
+![Top Doctors](images/top_doctors_analysis.png)
+
+---
+
+### 6. Monthly Revenue Analysis
+
+Analyzes hospital revenue, collected payments, and outstanding balances.
+
+**Concepts Used:**
+- SUM()
+- YEAR()
+- MONTH()
+- GROUP BY
+
+![Monthly Revenue](images/monthly_revenue_analysis.png)
+
+---
+
+### 7. Long Stay Patients Analysis
+
+Identifies patients with the longest hospital stays.
+
+**Concepts Used:**
+- JOIN
+- DATEDIFF()
+- COALESCE()
+- ORDER BY
+
+![Long Stay Patients](images/long_stay_patients_analysis.png)
+
+---
+
+### 8. Busiest Department Analysis
+
+Shows departments receiving the highest number of appointments.
+
+**Concepts Used:**
+- JOIN
+- COUNT()
+- GROUP BY
+- ORDER BY
+
+![Busiest Department](images/busiest_department_analysis.png)
+
+---
+
+### 9. Unpaid Patients Analysis
+
+Identifies patients with pending payments and outstanding balances.
+
+**Concepts Used:**
+- JOIN
+- WHERE
+- Calculated Columns
+- ORDER BY
+
+![Unpaid Patients](images/unpaid_patients_analysis.png)
+
+---
+
 ## 👁️ SQL View
 
 ### Active Admissions View
@@ -160,12 +242,17 @@ This view displays all currently admitted patients along with ward and bed infor
 - INNER JOIN
 - LEFT JOIN
 - GROUP BY
-- Aggregate Functions
+- Aggregate Functions (COUNT, SUM)
 - CASE Statements
 - Date Functions
+- YEAR()
+- MONTH()
 - DATEDIFF()
 - COALESCE()
-- Views
+- Calculated Columns
+- Filtering with WHERE
+- SQL Views
+- Business Reporting & KPI Analysis
 
 ---
 
