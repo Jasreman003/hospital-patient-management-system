@@ -29,6 +29,10 @@ This project helps answer business questions such as:
 - MySQL
 - MySQL Workbench
 - SQL
+- Python
+- Faker
+- Pandas
+- Power BI
 - Relational Database Design
 
 ---
@@ -60,9 +64,21 @@ The schema follows Third Normal Form (3NF) principles to reduce redundancy and i
 ```text
 hospital_pms/
 
+├── data_generation/
+│   └── generate_data.py
+│
 ├── db/
 │   ├── schema.sql
 │   └── seed.sql
+│
+├── generated_data/
+│   ├── admissions.csv
+│   ├── appointments.csv
+│   ├── beds.csv
+│   ├── billing.csv
+│   ├── doctors.csv 
+│   ├── patients.csv
+│   └── prescriptions.csv
 │
 ├── images/
 │   ├── bed_occupancy_analysis.png
@@ -73,8 +89,12 @@ hospital_pms/
 │   ├── long_stay_patients_analysis.png
 │   ├── monthly_revenue_analysis.png
 │   ├── patient_history_query_result.png
+|   ├── powerbi_dashboard.png
 │   ├── top_doctors_analysis.png
 │   └── unpaid_patients_analysis.png
+│
+├── powerbi/
+│   └── hospital_patient_management_dashboard.pbix
 │
 ├── queries/
 │   ├── bed_occupancy.sql
@@ -149,6 +169,8 @@ Identifies pending payments, balances, and patient stay duration.
 ![Billing Summary](images/billing_summary_analysis.png)
 
 ---
+
+## 📈 Advanced SQL Analytics
 
 ### 5. Top Doctors Analysis
 
@@ -256,6 +278,29 @@ This view displays all currently admitted patients along with ward and bed infor
 
 ---
 
+## 🤖 Synthetic Data Generation
+
+To simulate real-world hospital operations, synthetic healthcare data was generated using:
+
+- Python
+- Faker
+- Pandas
+
+### Generated Records
+
+| Dataset | Records |
+|----------|----------|
+| Patients | 100 |
+| Doctors | 20 |
+| Appointments | 500 |
+| Admissions | 150 |
+| Prescriptions | 500 |
+| Billing Records | 200 |
+
+The generated dataset enables realistic testing of SQL queries, reporting, and dashboard analytics.
+
+---
+
 ## 🚀 How to Run the Project
 
 1. Create a MySQL database:
@@ -290,6 +335,38 @@ views/active_admissions.sql
 
 ---
 
+## 📊 Power BI Dashboard
+
+An interactive Power BI dashboard was developed to visualize hospital operations and business performance.
+
+### KPI Cards
+
+- 👥 Total Patients
+- 👨‍⚕️ Total Doctors
+- 💰 Total Revenue
+- 📋 Pending Bills
+- 🛏️ Occupancy Rate
+
+### Dashboard Visuals
+
+- 🏆 Top 5 Doctors by Appointments
+- 📈 Monthly Revenue Trend
+- 💳 Billing Status Distribution
+- 🛏️ Bed Occupancy by Ward
+- 📊 Appointments by Department
+
+### Interactive Filters
+
+- Department
+- Payment Status
+- Ward
+
+### Dashboard Preview
+
+![Power BI Dashboard](images/powerbi_dashboard.png)
+
+---
+
 ## 📈 Future Improvements
 
 - Patient discharge management
@@ -298,6 +375,9 @@ views/active_admissions.sql
 - Revenue analytics dashboard
 - Stored procedures and triggers
 - Role-based access control
+- Real-time hospital monitoring dashboard
+- Predictive patient admission forecasting
+- Machine learning-based occupancy prediction
 
 ---
 
